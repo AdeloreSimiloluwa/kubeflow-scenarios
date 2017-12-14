@@ -1,3 +1,3 @@
 In the first step...
 
-`kubectl apply -f components/ -R`{{execute}}
+`kubectl apply -f kubeflow/components/ -R`{{execute}}

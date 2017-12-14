@@ -5,7 +5,8 @@
     "steps": [
       { "title": "Deploy Components", "text": "step1.md" },
       { "title": "Deploy Tensorflow Job", "text": "step2.md" },
-      { "title": "View Progress", "text": "step3.md" }
+      { "title": "View Progress", "text": "step3.md" },
+      { "title": "JupyterHub", "text": "step4.md" }
     ],
     "intro": {
       "text": "intro.md",
@@ -14,6 +15,11 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "example.yaml", "target": "/root"}
+      ]
     }
   },
   "environment": {

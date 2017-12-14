@@ -1,0 +1,3 @@
+In the final step...
+
+`kubectl get job`{{execute}}

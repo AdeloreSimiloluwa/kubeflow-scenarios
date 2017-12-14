@@ -1,0 +1,25 @@
+{
+  "title": "Deploying Kubeflow",
+  "description": "Learn how to deploy Kubeflow to a Kubernetes cluster",
+  "details": {
+    "steps": [
+      { "title": "Deploy Components", "text": "step1.md" },
+      { "title": "Deploy Tensorflow Job", "text": "step2.md" },
+      { "title": "View Progress", "text": "step3.md" }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "foreground-init.sh",
+      "courseData": "env-init.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster2-running"
+  }
+}

@@ -27,10 +27,10 @@
   "environment": {
     "uilayout": "terminal-iframe",
     "showdashboard": true,
-    "dashboard": "Jupyterhub",
-    "port": 80
+    "dashboard": "Jupyterhub"
   },
   "backend": {
-    "imageid": "kubernetes-cluster2-running"
+    "imageid": "kubernetes-cluster2-running",
+    "port": 80
   }
 }

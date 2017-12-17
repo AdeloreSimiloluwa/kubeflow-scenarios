@@ -1,14 +1,18 @@
 The second key component of Kubeflow is the ability to run Jupyter Notebooks via JupyterHub.
 
-The Hub is deployed onto the Kubernetes cluster. Via Katacoda, the URL for the Hub is https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com. On your cluster, find the Load Balancer IP address using `kubectl get svc`{{execute}}
+The Hub is deployed onto the Kubernetes cluster. Via Katacoda, the URL for the Hub is https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+
+On your cluster, find the Load Balancer IP address using `kubectl get svc`{{execute}}
 
 The JupyterHub has a login form. Enter the username __test__ and password: __test__.
 
 To deploy a notebook, start a new server. For an example, use the Docker Image `gcr.io/kubeflow/tensorflow-notebook-cpu:v1`{{copy}}
 
-Click **Spawn**
+The launcher allows you to configure additional options, such as resource requirements. In this case, accept the defaults and click **Spawn** to start the server.
 
-This will Spawn a new Kubernetes Pod for managing the server. View this using `kubectl get pods`{{execute}}
+After the server has launched, you will see the contents of the Docker Image that you can navigate and extend.
+
+Under the covers, this will Spawn a new Kubernetes Pod for managing the server. View this using `kubectl get pods`{{execute}}
 
 ### Create New Jupyter Notebook
 

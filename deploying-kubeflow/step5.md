@@ -8,7 +8,7 @@ The following image is designed to return a classification of an image on disk b
 
 The YAML for deploying the client is `cat model-client-job.yaml`{{execute}} and deployed in the same way as other jobs via `kubectl apply -f model-client-job.yaml`{{execute}}
 
-The command below will output the results: `kubectl logs $(kubectl get pods --all-namespaces  -a | grep Completed | head -n1 |  tr -s ' ' | cut -d ' ' -f 2)`{{execute}}
+The command below will output the results: `kubectl logs $(kubectl get pods -a | grep Completed | head -n1 |  tr -s ' ' | cut -d ' ' -f 2)`{{execute}}
 
 The results should be the classification of the [Katacoda logo](https://katacoda.com/kubeflow/scenarios/deploying-kubeflow/assets/katacoda.jpg).
 

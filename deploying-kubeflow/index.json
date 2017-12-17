@@ -4,9 +4,10 @@
   "details": {
     "steps": [
       { "title": "Deploy Components", "text": "step1.md" },
-      { "title": "Deploy Tensorflow Job", "text": "step2.md" },
+      { "title": "Deploy Tensorflow Job (TFJob)", "text": "step2.md" },
       { "title": "View Job Progress", "text": "step3.md" },
-      { "title": "Deploy Notebook via JupyterHub", "text": "step4.md" }
+      { "title": "Deploy Notebook via JupyterHub", "text": "step4.md" },
+      { "title": "Access Model Server", "text": "step5.md" }
     ],
     "intro": {
       "text": "intro.md",
@@ -18,12 +19,14 @@
     },
     "assets": {
       "host01": [
-        {"file": "example.yaml", "target": "/root"}
+        {"file": "example.yaml", "target": "/root"},
+        {"file": "model-client-job.yaml", "target": "/root"}
       ]
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-iframe",
+    "showdashboard": true,
     "dashboard": "Jupyterhub",
     "port": 80
   },

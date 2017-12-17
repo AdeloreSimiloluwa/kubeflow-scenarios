@@ -5,8 +5,8 @@
     "steps": [
       { "title": "Deploy Components", "text": "step1.md" },
       { "title": "Deploy Tensorflow Job", "text": "step2.md" },
-      { "title": "View Progress", "text": "step3.md" },
-      { "title": "JupyterHub", "text": "step4.md" }
+      { "title": "View Job Progress", "text": "step3.md" },
+      { "title": "Deploy Notebook via JupyterHub", "text": "step4.md" }
     ],
     "intro": {
       "text": "intro.md",
@@ -23,7 +23,9 @@
     }
   },
   "environment": {
-    "uilayout": "terminal"
+    "uilayout": "terminal",
+    "dashboard": "Jupyterhub",
+    "port": 80
   },
   "backend": {
     "imageid": "kubernetes-cluster2-running"

@@ -1,26 +1,22 @@
-The second key component of Kubeflow is the ability to run Jupyter Notebooks via JupyterHub.
+The second key component of Kubeflow is the ability to run Jupyter Notebooks via JupyterHub. [Jupyter Notebook](http://jupyter.org/) is the classic data science tool to run inline scripts and code snippets while documenting the process in the browser.
 
-The Hub is deployed onto the Kubernetes cluster. Via Katacoda, the URL for the Hub is https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com
+With KubeFlow the JupyterHub is deployed onto the Kubernetes cluster. You can find there the Load Balancer IP address using `kubectl get svc`{{execute}}
 
-On your cluster, find the Load Balancer IP address using `kubectl get svc`{{execute}}
+Via Katacoda, you can access the browser interface at the following link https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com or using the terminal *Jupyterhub* tab. To access the JupyterHub use the username __test__ and password: __test__ in the login form.
 
-The JupyterHub has a login form. Enter the username __test__ and password: __test__.
+To deploy a notebook, a new server has to be started. KubeFlow is using internally the `gcr.io/kubeflow/tensorflow-notebook-cpu:v1`{{copy}} Docker Image as default. After accessing the JupyterHub, you can click **Start My server** button.
 
-To deploy a notebook, start a new server. For an example, use the Docker Image `gcr.io/kubeflow/tensorflow-notebook-cpu:v1`{{copy}}
-
-The launcher allows you to configure additional options, such as resource requirements. In this case, accept the defaults and click **Spawn** to start the server.
-
-After the server has launched, you will see the contents of the Docker Image that you can navigate and extend.
+The server launcher allows you to configure additional options, such as resource requirements. In this case, accept the defaults and click **Spawn** to start the server. Now you can see the contents of the Docker image that you can navigate, extend and work with Jupyter Notebooks.
 
 Under the covers, this will Spawn a new Kubernetes Pod for managing the server. View this using `kubectl get pods`{{execute}}
 
-### Create New Jupyter Notebook
+### Working with Jupyter Notebook
 
-Notebooks can now be accessed via the Pod. To create a new Jupyter notebook, select the New dropdown, and select the Python 3 kernel as shown below.
+JupyterHub can now be accessed via the pod. You can now work with the environment seamlessly. For example to create a new notebook, select the New dropdown, and select the Python 3 kernel as shown below.
 
 <img src="/kubeflow/scenarios/deploying-kubeflow/assets/jupyterhub-create-notebook.png" alt="Create New Jupyter Notebook">
 
-It's not possible to create code snippets via Jupyter. For example, in the first cell paste in the following code:
+It's now possible to create code snippets. To start working with TensorFlow, paste the code below to the first cell and run it.
 
 <pre class="file" data-target="clipboard">
 from __future__ import print_function
@@ -31,7 +27,3 @@ hello = tf.constant('Hello TensorFlow!')
 s = tf.Session()
 print(s.run(hello))
 </pre>
-
-This can now be executed by running the Cell.
-
-<img src="/kubeflow/scenarios/deploying-kubeflow/assets/jupyterhub-run-notebook.png" alt="Run Jupyter Notebook">

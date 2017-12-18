@@ -7,7 +7,7 @@
       { "title": "Deploy Tensorflow Job (TFJob)", "text": "step2.md" },
       { "title": "View Job Progress", "text": "step3.md" },
       { "title": "Deploy JupyterHub", "text": "jupyter.md" },
-      { "title": "Access Model Server", "text": "step5.md" }
+      { "title": "Access Model Server", "text": "model.md" }
     ],
     "intro": {
       "text": "intro.md",

@@ -1,6 +1,6 @@
-Given a Kubernetes cluster, the first task is to deploy the Kubeflow components that are designed to make it easier to deploy Machine Learning workloads by taking advantage of the Kubernetes features and platform.
+The Kubeflow project is dedicated to making Machine Learning on Kubernetes easy, portable and scalable. Our goal is not to recreate other services, but to provide a straightforward way for spinning up best of breed OSS solutions.
 
-The Kubeflow components can be downloaded from the Github repository at https://github.com/google/kubeflow
+Details of the project can be found at https://github.com/google/kubeflow
 
 ### Kubeflow Components
 

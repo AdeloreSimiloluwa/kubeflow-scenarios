@@ -1,7 +1,3 @@
-TfJob provides a Kubernetes custom resource that makes it easy to run distributed or non-distributed TensorFlow jobs on Kubernetes. The TFJob controller takes a YAML specification for a master, parameter servers, and workers to help run distributed Tensorflow.
-
-## Deploy Example
-
 View an example of the TFJob by running `cat example.yaml`{{execute}}
 
 The TFJob can be deployed by running `kubectl apply -f example.yaml`{{execute}}
@@ -10,7 +6,7 @@ The job is made up of one master, one worker and two parameter servers.The workl
 
 The next step will explain the Job and how to access the results.
 
-### Job Replica Types
+### Job Deployment Replica Types
 
 __Master__: A job must have one and only one master. The master will coordinate training operations execution between workers.
 

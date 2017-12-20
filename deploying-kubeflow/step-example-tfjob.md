@@ -1,8 +1,8 @@
-The first key component of Kubeflow is the ability to deploy TensorFlow that has been packaged as a Docker Image.
+The main Kubeflow capability is to easily deploy TensorFlow code that had been packaged as a Docker Image.
 
-In the next step, we'll deploy our first TensorFlow workload that performs a matrix multiplication across the workers and parameter servers defined.
+In this step, we'll deploy our first TensorFlow workload that performs a matrix multiplication across the defined workers and parameter servers.
 
-The main code-snippet for the execution is:
+You can see the main execution code-snippet below:
 
 <pre class="file">
 for job_name in cluster_spec.keys():

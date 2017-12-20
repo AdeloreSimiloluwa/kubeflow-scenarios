@@ -1,4 +1,4 @@
-The status of Tensorflow jobs can be viewed via `kubectl get job`{{execute}}. Once the Tensorflow job has been completed, the master be marked as successful. Keep running the job command to see when it's completed.
+The status of TensorFlow jobs can be viewed via `kubectl get job`{{execute}}. Once the TensorFlow job has been completed, the master be marked as successful. Keep running the job command to see when it's completed.
 
 The master is responsible for coordinating the execution and aggregating the results. Once completed, the workload will complete. Under the covers, the completed workloads can be listed using `kubectl get pods -a | grep Completed`{{execute}}
 

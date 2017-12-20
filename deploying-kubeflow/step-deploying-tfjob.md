@@ -1,4 +1,4 @@
-TfJob provides a Kubernetes custom resource that makes it easy to run distributed or non-distributed TensorFlow jobs on Kubernetes. The TFJob controller takes a YAML specification for a master, parameter servers, and workers to help run distributed Tensorflow.
+TfJob provides a Kubernetes custom resource that makes it easy to run distributed or non-distributed TensorFlow jobs on Kubernetes. The TFJob controller takes a YAML specification for a master, parameter servers, and workers to help run distributed TensorFlow.
 
 ## Purpose
 
@@ -8,7 +8,7 @@ Once deployed, the CRD can configure the TensorFlow job based on the environment
 
 ## Defining TFJob
 
-To deploy the previous Tensorflow workload on Kubernetes via Kubeflow, a TFJob definition is required. The definition in this scenario can be viewed by running `cat example.yaml`{{execute}}
+To deploy the previous TensorFlow workload on Kubernetes via Kubeflow, a TFJob definition is required. The definition in this scenario can be viewed by running `cat example.yaml`{{execute}}
 
 The definition defines three components:
 
@@ -24,6 +24,6 @@ More information can be found at https://www.tensorflow.org/deploy/distributed
 
 The TFJob can be deployed by running `kubectl apply -f example.yaml`{{execute}}
 
-By deploying the job, Kubernetes will schedule the workloads for execution across the available nodes. As part of the deployment, Kubeflow will configure Tensorflow with the required settings allowing the different components to communicate. 
+By deploying the job, Kubernetes will schedule the workloads for execution across the available nodes. As part of the deployment, Kubeflow will configure TensorFlow with the required settings allowing the different components to communicate. 
 
 The next step will explain the Job and how to access the results.

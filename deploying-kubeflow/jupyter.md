@@ -2,7 +2,9 @@ The second key component of Kubeflow is the ability to run Jupyter Notebooks via
 
 With KubeFlow the JupyterHub is deployed onto the Kubernetes cluster. You can find there the Load Balancer IP address using `kubectl get svc`{{execute}}
 
-Via Katacoda, you can access the browser interface at the following link https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com or using the terminal *Jupyterhub* tab. To access the JupyterHub use the username __test__ and password: __test__ in the login form.
+## Open Jupyter Hub
+
+Via Katacoda, you can access the browser interface at the following link https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com or using the terminal *Jupyterhub* tab. To access the JupyterHub use the username __admin__ and a blank password in the login form.
 
 To deploy a notebook, a new server has to be started. KubeFlow is using internally the `gcr.io/kubeflow/tensorflow-notebook-cpu:v1`{{copy}} Docker Image as default. After accessing the JupyterHub, you can click **Start My server** button.
 

@@ -1,17 +1,29 @@
-View an example of the TFJob by running `cat example.yaml`{{execute}}
+TfJob provides a Kubernetes custom resource that makes it easy to run distributed or non-distributed TensorFlow jobs on Kubernetes. The TFJob controller takes a YAML specification for a master, parameter servers, and workers to help run distributed Tensorflow.
 
-The TFJob can be deployed by running `kubectl apply -f example.yaml`{{execute}}
+## Purpose
 
-The job is made up of one master, one worker and two parameter servers.The workload is defined in the Docker Image __gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff__.
+TFJob is a Kubernetes custom resource designed for running distributed or non-distributed TensorFlow jobs on Kubernetes. A Custom Resource Definition (CRD) provides the ability to create and manage TF Jobs in the same fashion as built-in Kubernetes resources.
 
-The next step will explain the Job and how to access the results.
+Once deployed, the CRD can configure the TensorFlow job based on the environment, allowing users to focus on machine learning instead of infrastructure.
 
-### Job Deployment Replica Types
+## Defining TFJob
 
-__Master__: A job must have one and only one master. The master will coordinate training operations execution between workers.
+To deploy the previous Tensorflow workload on Kubernetes via Kubeflow, a TFJob definition is required. The definition in this scenario can be viewed by running `cat example.yaml`{{execute}}
+
+The definition defines three components:
+
+__Master__: Each job must have one master. The master will coordinate training operations execution between workers.
 
 __Worker__: A job can have 0 to N workers. Each worker process runs the same model, providing parameters for processing to a Parameter Server.
 
 __PS__: A job can have 0 to N parameter servers. Parameter server enables you to scale your model across multiple machines.
 
 More information can be found at https://www.tensorflow.org/deploy/distributed
+
+## Deploying TfJob
+
+The TFJob can be deployed by running `kubectl apply -f example.yaml`{{execute}}
+
+By deploying the job, Kubernetes will schedule the workloads for execution across the available nodes. As part of the deployment, Kubeflow will configure Tensorflow with the required settings allowing the different components to communicate. 
+
+The next step will explain the Job and how to access the results.

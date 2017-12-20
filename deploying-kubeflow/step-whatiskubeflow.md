@@ -1,4 +1,6 @@
-The Kubeflow project is dedicated to making Machine Learning on Kubernetes easy, portable and scalable. Our goal is not to recreate other services, but to provide a straightforward way for spinning up best of breed OSS solutions.
+The Kubeflow project is dedicated to making Machine Learning on Kubernetes easy, portable and scalable. Our goal is not to recreate other services, but to provide a straightforward way for spinning up best of breed OSS solutions. Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+Because Kubeflow relies on Kubernetes, it runs wherever Kubernetes runs such as bare-metal servers, or cloud providers such as Google.
 
 Details of the project can be found at https://github.com/google/kubeflow
 

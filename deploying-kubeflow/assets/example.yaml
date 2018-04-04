@@ -1,5 +1,5 @@
-apiVersion: "kubeflow.org/v1alpha1"
-kind: "TFJob"
+apiVersion: "tensorflow.org/v1alpha1"
+kind: "TfJob"
 metadata:
   name: "example-job"
 spec:

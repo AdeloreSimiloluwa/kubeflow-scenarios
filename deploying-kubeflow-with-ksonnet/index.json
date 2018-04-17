@@ -1,5 +1,5 @@
 {
-  "title": "Deploying Kubeflow",
+  "title": "Deploying Kubeflow with Ksonnet",
   "description": "Learn how to deploy Kubeflow to a Kubernetes cluster",
   "details": {
     "steps": [

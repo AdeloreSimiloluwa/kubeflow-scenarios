@@ -5,6 +5,7 @@ docker run -v $(pwd)/my_model:/my_model seldonio/core-python-wrapper:0.7 /my_mod
 cd build
 ./build_image.sh
 ```
+
 ## Deploy Trained Model
 
 `cd ~/my-kubeflow/`{{execute}}
@@ -21,6 +22,8 @@ cd build
 ks generate seldon seldon --name=seldon --namespace=${NAMESPACE}
 ks apply default -c seldon
 ```{{execute}}
+
+# Deploy Trained Model via Seldon Core (seldon-serve-simple)
 
 ```
 ks generate seldon-serve-simple issue-summarization-model-serving \

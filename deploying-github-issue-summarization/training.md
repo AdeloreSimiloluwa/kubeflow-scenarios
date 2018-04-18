@@ -11,20 +11,25 @@ ks env add tfjob --namespace ${NAMESPACE}
 ```
 kubectl --namespace=${NAMESPACE} create secret generic gcp-credentials --from-literal=$GCPTOKEN
 ks param set tfjob namespace ${NAMESPACE} --env=tfjob
-ks param set tfjob image "gcr.io/agwl-kubeflow/tf-job-issue-summarization:latest" --env=tfjob
+ks param set tfjob image "gcr.io/agwl-kubeflow/tf-job-issue-summarization:dontdeploy" --env=tfjob
+```{{execute}}
 
 # Sample Size for training
-ks param set tfjob sample_size 100000 --env=tfjob
+`ks param set tfjob sample_size 100000 --env=tfjob`{{execute}}
 
 # Set the input and output GCS Bucket locations
+```
 ks param set tfjob input_data_gcs_bucket "kubeflow-examples" --env=tfjob
 ks param set tfjob input_data_gcs_path "github-issue-summarization-data/github-issues.zip" --env=tfjob
 ks param set tfjob output_model_gcs_bucket "kubeflow-examples" --env=tfjob
 ks param set tfjob output_model_gcs_path "github-issue-summarization-data/output_model.h5" --env=tfjob
-```
+```{{execute}}
 
 ```
 ks apply tfjob -c tfjob
+```{{execute}}
+
+```
 kubectl get pods -n=${NAMESPACE} -ltf_job_name=tf-job-issue-summarization
 ```{{execute}}
 
@@ -39,11 +44,3 @@ https://github.com/kubeflow/examples/blob/master/github_issue_summarization/note
 
 
 https://github.com/google/seq2seq/blob/master/docs/inference.md
-
-TensorFlow Hub is a library to foster the publication, discovery, and consumption of reusable parts of machine learning models
-
-Modules contain variables that have been pre-trained for a task using a large dataset. By reusing a module on a related task, you can:
-
-train a model with a smaller dataset,
-improve generalization, or
-significantly speed up training.

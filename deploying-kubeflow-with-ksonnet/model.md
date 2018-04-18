@@ -26,13 +26,7 @@ The parameters defined can be viewed via `ks param list`{{execute}}
 
 This provides a script that can be deployed to the environment and make our model available to clients.
 
-## Workaround
-
-Due to a issue in Ksonnet 0.10, run the following command to remove a line from the jsonnet definition.
-
-`sed -i 's/name: name,//g' components/${MODEL_COMPONENT}.jsonnet`{{execute}}
-
-Afterwards, you can deploy the template to the defined Kubernetes cluster.
+You can deploy the template to the defined Kubernetes cluster.
 
 `ks apply default -c ${MODEL_COMPONENT}`{{execute}}
 

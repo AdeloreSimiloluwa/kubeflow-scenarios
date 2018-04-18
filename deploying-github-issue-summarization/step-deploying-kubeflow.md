@@ -15,9 +15,6 @@ ks env set default --namespace ${NAMESPACE}
 ```{{execute}}
 
 # Install Kubeflow components
-
-When deploying locally, use the upstream `github.com/kubeflow/kubeflow/tree/master/kubeflow` registry and your own personal GITHUB_TOKEN as described in the [documentation](https://github.com/kubeflow/kubeflow/blob/master/user_guide.md#403-api-rate-limit-exceeded-error).
-
 ```
 export GITHUB_TOKEN=99510f2ccf40e496d1e97dbec9f31cb16770b884
 

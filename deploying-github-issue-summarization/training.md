@@ -1,3 +1,5 @@
+https://github.com/kubeflow/examples/tree/master/github_issue_summarization
+
 `git clone https://github.com/kubeflow/examples.git`{{execute}}
 
 `cd examples/github_issue_summarization`{{execute}}

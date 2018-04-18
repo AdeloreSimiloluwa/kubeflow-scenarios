@@ -28,5 +28,10 @@ ks pkg install kubeflow/tf-job
 # Deploy Kubeflow
 `ks apply default -c kubeflow-core`{{execute}}
 
+# Create Persistence Volume and Services for Katacoda
+This is only required when deploying Kubeflow to Katacoda.
+
+`kubectl apply -f ~/kubeflow/katacoda.yaml -n ${NAMESPACE}`{{execute}}
+
 # View Status
 `kubectl get pods -n ${NAMESPACE}`{{execute}}

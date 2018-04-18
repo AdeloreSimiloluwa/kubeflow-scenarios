@@ -4,7 +4,7 @@ A Custom Resource Definition (CRD) provides the ability to create and manage TF 
 
 ## Create TFJob Deployment Definition
 
-To deploy the TensorFlow workload described in the previous step, Kubeflow needs a TFJob definition. In this scenario, you can view it by running `cat example.yaml`{{execute}}
+To deploy the TensorFlow workload described in the previous step, Kubeflow needs a TFJob definition. In this scenario, you can view it by running `cat ~/example.yaml`{{execute}}
 
 The definition defines three components:
 
@@ -18,8 +18,12 @@ More information can be found at https://www.tensorflow.org/deploy/distributed
 
 ## Deploying TfJob
 
-The TFJob can be deployed by running `kubectl apply -f example.yaml && kubectl get pods`{{execute}}
+The TFJob can be deployed by running `kubectl apply -f ~/example.yaml && kubectl get tfjob && kubectl get pods`{{execute}}
 
 By deploying the job, Kubernetes will schedule the workloads for execution across the available nodes. As part of the deployment, Kubeflow will configure TensorFlow with the required settings allowing the different components to communicate.
 
-The next step will explain the Job and how to access the results.
+View the progress of the Tensorflow job by following the logs of the master.
+`kubectl get pods --no-headers -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | grep master | xargs kubectl logs -f`{{execute}}
+
+
+A cleaner approach is planned for a future release of Kubeflow. Follow the latest at https://github.com/kubeflow/tf-operator/issues/536

@@ -49,4 +49,4 @@ To ensure Kubeflow runs successfully on Katacoda, deploy the following extension
 `kubectl apply -f ~/kubeflow/katacoda.yaml -n ${NAMESPACE}`{{execute}}
 
 ## View Status
-The core Kubeflow components have been deployed. View the status of the deployment with `kubectl get pods, svc -n ${NAMESPACE}`{{execute}}
+The core Kubeflow components have been deployed. View the status of the deployment with `kubectl get pods -n ${NAMESPACE}`{{execute}}

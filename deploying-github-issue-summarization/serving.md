@@ -1,4 +1,4 @@
-Once the trained model (_output_model.h5_) is available, it needs to be packaged up as a Docker Image. As the serving will be done via Seldon Core, the command below would build the required Docker Image containing your trained model. This has been done for you and uploaded as _katacoda/issue-summarization:0.1-zuowang_. A special thank you to [Zuo Wang](https://hub.docker.com/u/zuowang/) for providing the base image.
+Once the trained model (_output_model.h5_) is available, it needs to be packaged up as a Docker Image. As the serving will be done via Seldon Core, the command below would build the required Docker Image containing your trained model. This has been done for you and uploaded as _gcr.io/kubeflow-images-public/issue-summarization:0.1_.
 
 The commands below represent what's required to build the image.
 
@@ -24,11 +24,11 @@ ks apply default -c seldon
 ```{{execute}}
 
 ## Deploy Trained Model via Seldon Core (seldon-serve-simple)
-With the Seldon components deployed, it's possible to use this to serve our trained model via the Docker Image _katacoda/issue-summarization:0.1-zuowang_.  The approach below defines two replicas, this means we'll have two instances of our application available and load balanced by Kubernetes for reliability and performance.
+With the Seldon components deployed, it's possible to use this to serve our trained model via the Docker Image _gcr.io/kubeflow-images-public/issue-summarization:0.1_.  The approach below defines two replicas, this means we'll have two instances of our application available and load balanced by Kubernetes for reliability and performance.
 ```
 ks generate seldon-serve-simple issue-summarization-model-serving \
   --name=issue-summarization \
-  --image=katacoda/issue-summarization:0.1-zuowang \
+  --image=gcr.io/kubeflow-images-public/issue-summarization:0.1 \
   --namespace=${NAMESPACE} \
   --replicas=2
 ks apply default -c issue-summarization-model-serving

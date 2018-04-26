@@ -28,9 +28,9 @@ This provides a script that can be deployed to the environment and make our mode
 
 You can deploy the template to the defined Kubernetes cluster.
 
-`ks apply default -n ${NAMESPACE} -c ${MODEL_COMPONENT}`{{execute}}
+`ks apply default -c ${MODEL_COMPONENT}`{{execute}}
 
-Clients will now be able to connect and access the trained data, see the pod running via `kubectl get pods -n ${NAMESPACE}`{{execute}}
+Clients will now be able to connect and access the trained data, see the pod running via `kubectl get pods`{{execute}}
 
 ### Image Classification
 
@@ -38,14 +38,14 @@ In this example, we use the pre-trained [Inception V3](https://github.com/tensor
 
 To use the published model, you need to set up the client. This can be achieved the same way as other jobs. The YAML file for deploying the client is `cat ~/model-client-job.yaml`{{execute}}. To deploy it use the following command:
 
-`kubectl apply -f ~/model-client-job.yaml -n kubeflow`{{execute}}
+`kubectl apply -f ~/model-client-job.yaml`{{execute}}
 
 To see the status of the __model-client-job__ run:
 
-`kubectl get pods -n kubeflow -a`{{execute}}
+`kubectl get pods -a`{{execute}}
 
 The command below will output the classification results for the [Katacoda logo](https://katacoda.com/kubeflow/scenarios/deploying-kubeflow/assets/katacoda.jpg).
 
-`kubectl logs -n kubeflow $(kubectl get -n kubeflow pods -a | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
+`kubectl logs $(kubectl get pods -a | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
 
 More information on serving models via Kubernetes can be found at https://github.com/google/kubeflow/tree/master/components/k8s-model-server

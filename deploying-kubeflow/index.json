@@ -32,7 +32,7 @@
     "dashboard": "Jupyterhub"
   },
   "backend": {
-    "imageid": "kubernetes-kubeflow",
+    "imageid": "kubernetes-cluster2-running",
     "port": 80
   }
 }

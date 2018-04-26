@@ -6,7 +6,7 @@ Depending on the size of the dataset, training models with Kubeflow can take som
 
 The project is available at https://github.com/kubeflow/examples/tree/master/github_issue_summarization. This contains the Ksonnet templates to describe how to train and serve the model.
 
-Clone the repository using `git clone https://github.com/kubeflow/examples.git; cd examples/github_issue_summarization/ks-kubeflow`{{execute}}
+Clone the repository using `git clone https://github.com/katacoda/kubeflow-examples.git examples; cd examples/github_issue_summarization/ks-kubeflow`{{execute}}
 
 Once cloned, create an environment for the application.
 ```
@@ -21,7 +21,7 @@ A GCP Credential is also created. This allows the Tensorflow job to download the
 GCPTOKEN=key.json=/nottraining.json
 kubectl --namespace=${NAMESPACE} create secret generic gcp-credentials --from-literal=$GCPTOKEN
 ks param set tfjob namespace ${NAMESPACE} --env=tfjob
-ks param set tfjob image "gcr.io/kubeflow-images-public/tf-job-issue-summarization:notraining" --env=tfjob
+ks param set tfjob image "gcr.io/kubeflow-images-public/tf-job-issue-summarization-agwl:latest" --env=tfjob
 ```{{execute}}
 
 # Sample Size for training
@@ -40,6 +40,10 @@ Once the parameters have been defined, the job can be deployed with the followin
 ```
 ks apply tfjob -c tfjob
 ```{{execute}}
+
+This is deployed as a TFJob.
+
+`kubectl get tfjob -n kubeflow`{{execute}}
 
 You can view the status of the deployment with:
 

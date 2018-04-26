@@ -34,6 +34,10 @@ ks generate seldon-serve-simple issue-summarization-model-serving \
 ks apply default -c issue-summarization-model-serving
 ```{{execute}}
 
+Disable the livenessProbe
+
+`kubectl patch deployment -n kubeflow issue-summarization-issue-summarization  --type json   -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/livenessProbe"}]'`{{execute}}
+
 View the status of the deployment at `kubectl get pods -n ${NAMESPACE}`{{execute}}
 
 ## Query

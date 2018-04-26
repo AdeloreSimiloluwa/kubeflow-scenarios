@@ -28,7 +28,7 @@ This provides a script that can be deployed to the environment and make our mode
 
 You can deploy the template to the defined Kubernetes cluster.
 
-`ks apply default -c ${MODEL_COMPONENT}`{{execute}}
+`ks apply default -n ${NAMESPACE} -c ${MODEL_COMPONENT}`{{execute}}
 
 Clients will now be able to connect and access the trained data, see the pod running via `kubectl get pods -n ${NAMESPACE}`{{execute}}
 

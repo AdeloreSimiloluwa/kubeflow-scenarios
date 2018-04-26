@@ -23,7 +23,7 @@
     "dashboard": "Ambassador"
   },
   "backend": {
-    "imageid": "kubernetes-cluster2-running",
+    "imageid": "kubernetes-kubeflow",
     "port": 30080
   }
 }

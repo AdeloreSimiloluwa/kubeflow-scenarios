@@ -8,6 +8,11 @@ The project is available at https://github.com/kubeflow/examples/tree/master/git
 
 Clone the repository using `git clone https://github.com/katacoda/kubeflow-examples.git examples; cd examples/github_issue_summarization/ks-kubeflow`{{execute}}
 
+## Train Using PVC
+`ks apply --env=tfjob -c data-pvc`
+
+
+
 Once cloned, create an environment for the application.
 ```
 ks env add tfjob 
@@ -27,13 +32,6 @@ ks param set tfjob image "gcr.io/kubeflow-images-public/tf-job-issue-summarizati
 # Sample Size for training
 `ks param set tfjob sample_size 100000 --env=tfjob`{{execute}}
 
-# Set the input and output GCS Bucket locations
-```
-ks param set tfjob input_data_gcs_bucket "kubeflow-examples" --env=tfjob
-ks param set tfjob input_data_gcs_path "github-issue-summarization-data/github-issues.zip" --env=tfjob
-ks param set tfjob output_model_gcs_bucket "kubeflow-examples" --env=tfjob
-ks param set tfjob output_model_gcs_path "github-issue-summarization-data/output_model.h5" --env=tfjob
-```{{execute}}
 
 Once the parameters have been defined, the job can be deployed with the following command. This will allow the Ksonnet template to the target Kubernetes cluster.
 

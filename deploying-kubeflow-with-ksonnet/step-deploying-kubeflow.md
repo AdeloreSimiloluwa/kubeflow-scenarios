@@ -1,4 +1,10 @@
-With Kubeflow being an extension to Kubernetes, all the components need to be deployed to the platform. They are available in the [Github repository](https://github.com/google/kubeflow).
+With Kubeflow being an extension to Kubernetes, all the components need to be deployed to the platform. They are available in the [Github repository](https://github.com/kubeflow/kubeflow).
+
+## Deploy Ksonnet
+
+```
+curl -L https://github.com/ksonnet/ksonnet/releases/download/v0.11.0/ks_0.11.0_linux_amd64.tar.gz | tar xvz && mv ks_0.11.0_linux_amd64/ks /usr/local/bin/ks && rm -rf ks_0.11.0_linux_amd64/
+```{{execute}}
 
 ## Create a namespace for Kubeflow deployment
 The namespace defines a virtual cluster for the Kubeflow components to run from without interfering with other workloads on the system.
@@ -28,9 +34,10 @@ When deploying onto your cluster, use the upstream `github.com/kubeflow/kubeflow
 export GITHUB_TOKEN=99510f2ccf40e496d1e97dbec9f31cb16770b884
 
 ks registry add kubeflow github.com/katacoda/kubeflow-ksonnet/tree/master/kubeflow
+ks pkg install kubeflow/argo
 ks pkg install kubeflow/core
+ks pkg install kubeflow/seldon
 ks pkg install kubeflow/tf-serving
-ks pkg install kubeflow/tf-job
 ```{{execute}}
 
 ## Create templates for core components

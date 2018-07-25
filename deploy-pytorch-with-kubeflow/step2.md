@@ -1,12 +1,10 @@
 `kubectl get crd`{{execute}}
 
-```
-ks pkg install kubeflow/pytorch-job
-ks generate pytorch-operator pytorch-operator
-```
+`ks pkg install kubeflow/pytorch-job`
 
 ```
 cd kubeflow_ks_app
+ks generate pytorch-operator pytorch-operator
 ks apply default -c pytorch-operator
 ```{{execute}}
 

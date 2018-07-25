@@ -48,4 +48,4 @@ The command below will output the classification results for the [Katacoda logo]
 
 `kubectl logs $(kubectl get pods -a | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
 
-More information on serving models via Kubernetes can be found at https://github.com/google/kubeflow/tree/master/components/k8s-model-server
+More information on serving models via Kubernetes can be found at https://github.com/kubeflow/kubeflow/tree/master/components/k8s-model-server

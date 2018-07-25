@@ -7,3 +7,5 @@ Distributed MNIST Model
 `kubectl create -f ~/example.yaml`{{execute}} 
 
 `kubectl get pods -l pytorch_job_name=distributed-mnist`{{execute}}
+
+One master, four workers.

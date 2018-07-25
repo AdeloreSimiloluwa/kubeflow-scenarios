@@ -17,7 +17,11 @@ Rank  0 , epoch  0 :  1.2745472780232237
 Rank  0 , epoch  1 :  0.5743547164872765
 </pre>
 
-`ssh -t root@[[HOST2_IP]] htop`{{execute}}
+`ssh -o StrictHostKeyChecking=no -t root@[[HOST2_IP]] htop`{{execute}}
+
+`clear`{{execute interrupt}}
+
+## View State
 
 `kubectl get -o yaml pytorchjobs distributed-mnist`{{execute}}
 

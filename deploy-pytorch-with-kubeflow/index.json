@@ -38,6 +38,6 @@
     "uilayout": "terminal"
   },
   "backend": {
-    "imageid": "kubeflow"
+    "imageid": "kubernetes-kubeflow"
   }
 }

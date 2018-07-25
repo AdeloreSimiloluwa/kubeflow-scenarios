@@ -9,13 +9,20 @@ The project is available at https://github.com/kubeflow/examples/tree/master/git
 Clone the repository using `git clone https://github.com/katacoda/kubeflow-examples.git examples; cd examples/github_issue_summarization/ks-kubeflow`{{execute}}
 
 ## Train Using PVC
-`ks apply --env=tfjob -c data-pvc`
+
+`
+ks env add tfjob 
+ks env set tfjob
+ks apply tfjob -c data-pvc
+ks apply tfjob -c data-downloader
+ks apply tfjob -c tfjob-pvc
+`
 
 
 
 Once cloned, create an environment for the application.
 ```
-ks env add tfjob 
+
 ```{{execute}}
 
 Once an environment has been created, the next step is to configure the TFJob to launch the trained model. The Tensorflow code has been packaged as a Docker Image called _gcr.io/agwl-kubeflow/tf-job-issue-summarization_. You can view the code at https://github.com/kubeflow/examples/blob/master/github_issue_summarization/notebooks/train.py.

@@ -10,7 +10,7 @@ Clone the repository using `git clone https://github.com/katacoda/kubeflow-examp
 
 Once cloned, create an environment for the application.
 ```
-ks env add tfjob --namespace ${NAMESPACE}
+ks env add tfjob 
 ```{{execute}}
 
 Once an environment has been created, the next step is to configure the TFJob to launch the trained model. The Tensorflow code has been packaged as a Docker Image called _gcr.io/agwl-kubeflow/tf-job-issue-summarization_. You can view the code at https://github.com/kubeflow/examples/blob/master/github_issue_summarization/notebooks/train.py.
@@ -19,8 +19,8 @@ A GCP Credential is also created. This allows the Tensorflow job to download the
 
 ```
 GCPTOKEN=key.json=/nottraining.json
-kubectl --namespace=${NAMESPACE} create secret generic gcp-credentials --from-literal=$GCPTOKEN
-ks param set tfjob namespace ${NAMESPACE} --env=tfjob
+kubectl create secret generic gcp-credentials --from-literal=$GCPTOKEN
+ks param set tfjob namespace default --env=tfjob
 ks param set tfjob image "gcr.io/kubeflow-images-public/tf-job-issue-summarization-agwl:latest" --env=tfjob
 ```{{execute}}
 
@@ -48,13 +48,13 @@ This is deployed as a TFJob.
 You can view the status of the deployment with:
 
 ```
-kubectl get pods -n=${NAMESPACE} -ltf_job_name=tf-job-issue-summarization
+kubectl get pods -ltf_job_name=tf-job-issue-summarization
 ```{{execute}}
 
 After it has started, the logs can be accessed via:
 
 ```
-kubectl logs -n=${NAMESPACE} -f $(kubectl get pods -n=${NAMESPACE} -ltf_job_name=tf-job-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
+kubectl logs -f $(kubectl get pods -ltf_job_name=tf-job-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
 ```{{execute}}
 
 As the training will take a long time to complete, it's recommended to move on to the next step and use a pre-trained model.

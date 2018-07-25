@@ -9,17 +9,15 @@ cd build
 ./build_image.sh
 ```
 
-## Gives cluster-admin role to the default service account in the ${NAMESPACE}
-`kubectl create clusterrolebinding seldon-admin --clusterrole=cluster-admin --serviceaccount=${NAMESPACE}:default`{{execute}}
-
 ## Install the kubeflow/seldon package
-Similar to how we defined the packages when deploying Kubeflow, we need to install the additional Seldon package.
-`cd ~/my-kubeflow/; ks pkg install kubeflow/seldon`{{execute}}
+
+Kubeflow installs the kubeflow/seldon package by default. If we had wanted to setup Kubeflow manually, this would have been added using `ks pkg install kubeflow/seldon`
 
 ## Generate the Seldon component and deploy it
 As we've made a change to the configuration, it's required to generate the template containing Seldon and deploy it to the Kubernetes cluster.
 ```
-ks generate seldon seldon --name=seldon --namespace=${NAMESPACE}
+cd ~/kubeflow_ks_app/
+ks generate seldon seldon --name=seldon
 ks apply default -c seldon
 ```{{execute}}
 
@@ -29,18 +27,15 @@ With the Seldon components deployed, it's possible to use this to serve our trai
 ks generate seldon-serve-simple issue-summarization-model-serving \
   --name=issue-summarization \
   --image=gcr.io/kubeflow-images-public/issue-summarization:0.1 \
-  --namespace=${NAMESPACE} \
   --replicas=2
 ks apply default -c issue-summarization-model-serving
 ```{{execute}}
 
-Disable the livenessProbe
+## Disable the livenessProbe
 
-`kubectl patch deployment -n kubeflow issue-summarization-issue-summarization  --type json   -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/livenessProbe"}]'`{{execute}}
+`kubectl patch deployment issue-summarization-issue-summarization  --type json   -p='[{"op": "remove", "path": "/spec/template/spec/containers/0/livenessProbe"}]'`{{execute}}
 
-`kubectl patch deployment -n kubeflow issue-summarization-issue-summarization  --type json   -p='[{"op": "remove", "path": "/spec/template/spec/containers/1/livenessProbe"}]'`{{execute}}
-
-View the status of the deployment at `kubectl get pods -n ${NAMESPACE}`{{execute}}
+View the status of the deployment at `kubectl get pods`{{execute}}
 
 ## Query
 

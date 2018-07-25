@@ -3,3 +3,4 @@ ssh root@[[HOST_IP]] "curl -L https://katacoda.com/kubeflow/scenarios/deploying-
 ssh root@[[HOST2_IP]] "curl -L https://katacoda.com/kubeflow/scenarios/deploying-kubeflow-with-ksonnet/assets/cat.jpg -o /root/cat.jpg"
 ssh root@[[HOST_IP]] "curl -L https://katacoda.com/kubeflow/scenarios/deploying-kubeflow-with-ksonnet/assets/katacoda.jpg -o /root/katacoda.jpg"
 ssh root@[[HOST2_IP]] "curl -L https://katacoda.com/kubeflow/scenarios/deploying-kubeflow-with-ksonnet/assets/katacoda.jpg -o /root/katacoda.jpg"
+ssh root@[[HOST2_IP]] "mkdir -p /data; chmod 777 -R /data/"

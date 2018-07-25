@@ -44,7 +44,7 @@ To see the status of the __model-client-job__ run:
 
 `kubectl get pods -a`{{execute}}
 
-The command below will output the classification results for the [Katacoda logo](https://katacoda.com/kubeflow/scenarios/deploying-kubeflow/assets/katacoda.jpg).
+After it has completed, the command below will output the classification results for the [Katacoda logo](https://katacoda.com/kubeflow/scenarios/deploying-kubeflow/assets/katacoda.jpg).
 
 `kubectl logs $(kubectl get pods -a | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
 

@@ -16,7 +16,7 @@ __PS__: A job can have 0 to N parameter servers. Parameter server enables you to
 
 More information can be found at https://www.tensorflow.org/deploy/distributed
 
-## Deploying TfJob
+## Deploying TFJob
 
 The TFJob can be deployed by running `kubectl apply -f example.yaml`{{execute}}
 

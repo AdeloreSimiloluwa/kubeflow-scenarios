@@ -3,8 +3,9 @@ The API defines us with the ability to take a Github issue and have a summary cr
 This can also be accessed via the Web Application. The example below will deploy the web UI.
 
 ```
-cd ~/my-kubeflow/examples/github_issue_summarization/ks-kubeflow
-ks env add frontendenv --namespace ${NAMESPACE}
+git clone https://github.com/kubeflow/examples ~/kubeflow-examples
+cd ~/kubeflow-examples/github_issue_summarization/ks-kubeflow
+ks env add frontendenv
 ks param set ui github_token $GITHUB_TOKEN
 ks apply frontendenv -c ui
 ```{{execute}}

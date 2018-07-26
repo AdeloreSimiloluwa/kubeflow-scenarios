@@ -1,11 +1,13 @@
-Distributed MNIST Model
+The Distributed MNIST Model has been packaged into a Container Image. The Python PyTorch code can be viewed on [Github](https://github.com/kubeflow/pytorch-operator/blob/9605eb6783e3549654082ea4b18a9cb0391e8548/examples/dist-mnist/dist_mnist.py)
 
-`cat ~/example.yaml`{{execute}}
+To deploy the training model, a `PyTorchJob` is required. This defines the Container Image to use and the number of replicas to use to distribute the training.
 
-[dist_mnist.py](https://github.com/kubeflow/pytorch-operator/blob/9605eb6783e3549654082ea4b18a9cb0391e8548/examples/dist-mnist/dist_mnist.py)
+An example can be viewed at `cat ~/example.yaml`{{execute}}
+
+This is deployed via Kubectl, the Kubernetes CLI.
 
 `kubectl create -f ~/example.yaml`{{execute}} 
 
-`kubectl get pods -l pytorch_job_name=distributed-mnist`{{execute}}
+The Kubeflow PyTorch Operator and Kubernetes will schedule the workload and start the required number of replicas. You can view the status with `kubectl get pods -l pytorch_job_name=distributed-mnist`{{execute}}
 
-One master, four workers.
+You should see one master and three workers created. The next step will discuss how to view the results.

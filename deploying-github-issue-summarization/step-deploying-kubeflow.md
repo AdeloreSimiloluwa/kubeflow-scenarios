@@ -1,6 +1,6 @@
 With Kubeflow being an extension to Kubernetes, all the components need to be deployed to the platform. 
 
-The team have provided a installation script which uses Ksonnet to deploy Kubeflow to an existing Kubernetes cluster.
+The team have provided an installation script which uses Ksonnet to deploy Kubeflow to an existing Kubernetes cluster.
 
 Kubeflow uses Ksonnet to deploy the required components. Install Ksonnet 0.11 with the command below:
 ```

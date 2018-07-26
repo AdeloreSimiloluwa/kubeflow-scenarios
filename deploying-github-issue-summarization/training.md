@@ -8,47 +8,41 @@ The project is available at https://github.com/kubeflow/examples/tree/master/git
 
 Clone the repository using `git clone https://github.com/katacoda/kubeflow-examples.git examples; cd examples/github_issue_summarization/ks-kubeflow`{{execute}}
 
-## Train Using PVC
+## Train Using PersistentVolumeClaim (PVC)
+
+Data for the training can be stored in different locations based on requirements, such as a PVC or a Google Storage Bucket. 
+
+In this case the training will be based on data stored in a local PVC. Download the training data with the following jobs:
 
 `
-ks env add tfjob 
-ks env set tfjob
-ks apply tfjob -c data-pvc
-ks apply tfjob -c data-downloader
-ks apply tfjob -c tfjob-pvc
+ks env add tfjob-run1
+ks env set tfjob-run1
+ks param set tfjob-run1 namespace default
+ks apply tfjob-run1 -c data-pvc
+ks apply tfjob-run1 -c data-downloader
+ks apply tfjob-run1 -c tfjob-pvc
 `
 
+View the progress of the download with:
 
+`kubectl get pods -l job-name`
 
-Once cloned, create an environment for the application.
-```
-
-```{{execute}}
+`kubectl logs $(kubectl get pods -l job-name -o=jsonpath='{.items[0].metadata.name}')`{{execute}}
 
 Once an environment has been created, the next step is to configure the TFJob to launch the trained model. The Tensorflow code has been packaged as a Docker Image called _gcr.io/agwl-kubeflow/tf-job-issue-summarization_. You can view the code at https://github.com/kubeflow/examples/blob/master/github_issue_summarization/notebooks/train.py.
 
-A GCP Credential is also created. This allows the Tensorflow job to download the required dataset (_github-issues.zip_) and a place to persist the trained model (_output_model.h5_).
+The following will define the Container Image to use and the sample size for the training.
 
 ```
-GCPTOKEN=key.json=/nottraining.json
-kubectl create secret generic gcp-credentials --from-literal=$GCPTOKEN
-ks param set tfjob namespace default --env=tfjob
-ks param set tfjob image "gcr.io/kubeflow-images-public/tf-job-issue-summarization-agwl:latest" --env=tfjob
+ks param set tfjob-run1 image "gcr.io/agwl-kubeflow/tf-job-issue-summarization:latest"
+ks param set tfjob-run1 sample_size 100000 
 ```{{execute}}
 
-# Sample Size for training
-`ks param set tfjob sample_size 100000 --env=tfjob`{{execute}}
-
-
-Once the parameters have been defined, the job can be deployed with the following command. This will allow the Ksonnet template to the target Kubernetes cluster.
-
-```
-ks apply tfjob -c tfjob
-```{{execute}}
+`ks apply tfjob-run1 -c tfjob`{{execute}}
 
 This is deployed as a TFJob.
 
-`kubectl get tfjob -n kubeflow`{{execute}}
+`kubectl get tfjob`{{execute}}
 
 You can view the status of the deployment with:
 
@@ -56,7 +50,7 @@ You can view the status of the deployment with:
 kubectl get pods -ltf_job_name=tf-job-issue-summarization
 ```{{execute}}
 
-After it has started, the logs can be accessed via:
+The logs can be accessed via:
 
 ```
 kubectl logs -f $(kubectl get pods -ltf_job_name=tf-job-issue-summarization -o=jsonpath='{.items[0].metadata.name}')

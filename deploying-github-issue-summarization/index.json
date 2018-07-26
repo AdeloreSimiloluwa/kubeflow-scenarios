@@ -4,6 +4,7 @@
   "details": {
     "steps": [
       { "title": "Deploying Kubeflow", "text": "step-deploying-kubeflow.md" },
+      { "title": "Training Model", "text": "training.md" },
       { "title": "Serving Model", "text": "serving.md" },
       { "title": "Querying Model", "text": "querying.md" }
     ],

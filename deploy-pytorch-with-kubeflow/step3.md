@@ -2,7 +2,7 @@ The Distributed MNIST Model has been packaged into a Container Image. The Python
 
 To deploy the training model, a `PyTorchJob` is required. This defines the Container Image to use and the number of replicas to use to distribute the training.
 
-An example can be viewed at `cat ~/example.yaml`{{execute}}
+An example can be viewed with `cat ~/example.yaml`{{execute}}
 
 This is deployed via Kubectl, the Kubernetes CLI.
 

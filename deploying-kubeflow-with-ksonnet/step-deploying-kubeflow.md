@@ -28,7 +28,7 @@ ks env set default --namespace ${NAMESPACE}
 
 Kubeflow and Ksonnet together allow you to deploy the components required to run your workflow. In this case, it's recommended to install the core Kubeflow infrastructure, the ability to train models with TFJob and serve trained models using TF Serving.
 
-When deploying onto your cluster, use the upstream `github.com/kubeflow/kubeflow/tree/master/kubeflow` registry and your own personal GITHUB_TOKEN as described in the [documentation](https://github.com/kubeflow/kubeflow/blob/master/user_guide.md#403-api-rate-limit-exceeded-error).
+When deploying onto your cluster, use the upstream `github.com/kubeflow/kubeflow/tree/master/kubeflow` registry and your own personal GITHUB_TOKEN.
 
 ```
 export GITHUB_TOKEN=99510f2ccf40e496d1e97dbec9f31cb16770b884

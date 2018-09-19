@@ -5,22 +5,22 @@
     "paid": false,
     "courses": [
       {
-        "course_id": "deploying-kubeflow",
+        "id": "deploying-kubeflow",
         "title": "Deploying Kubeflow",
         "description": "Learn how to deploy Kubeflow to a Kubernetes cluster"
       },
       {
-        "course_id": "deploying-kubeflow-with-ksonnet",
+        "id": "deploying-kubeflow-with-ksonnet",
         "title": "Deploying Kubeflow with Ksonnet",
         "description": "Learn how to deploy Kubeflow to a Kubernetes cluster"
       },
       {
-        "course_id": "deploy-pytorch-with-kubeflow",
+        "id": "deploy-pytorch-with-kubeflow",
         "title": "Deploying PyTorch with Kubeflow",
         "description": "Learn how to run PyTorch using Kubernetes and Kubeflow"
       },
       {
-        "course_id": "deploying-github-issue-summarization",
+        "id": "deploying-github-issue-summarization",
         "title": "Deploying Github Issue Summarization with Kubeflow",
         "description": "Learn how to deploy Kubeflow workloads to a Kubernetes cluster"
       }

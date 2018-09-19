@@ -3,28 +3,28 @@ kind: "TFJob"
 metadata:
   name: "example-job"
 spec:
-  replicaSpecs:
-    - replicas: 1
-      tfReplicaType: MASTER
+  tfReplicaSpecs:
+    Master:
+      replicas: 1
+      restartPolicy: Never
       template:
         spec:
           containers:
-            - image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff
-              name: tensorflow
-          restartPolicy: OnFailure
-    - replicas: 1
-      tfReplicaType: WORKER
+            - name: tensorflow
+              image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff
+    Worker:
+      replicas: 1
+      restartPolicy: Never
       template:
         spec:
           containers:
-            - image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff
-              name: tensorflow
-          restartPolicy: OnFailure
-    - replicas: 2
-      tfReplicaType: PS
+            - name: tensorflow
+              image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff
+    PS:
+      replicas: 2
+      restartPolicy: Never
       template:
         spec:
           containers:
-            - image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff
-              name: tensorflow
-          restartPolicy: OnFailure
+            - name: tensorflow
+              image: gcr.io/tf-on-k8s-dogfood/tf_sample:dc944ff

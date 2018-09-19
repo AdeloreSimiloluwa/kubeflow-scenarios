@@ -28,7 +28,7 @@
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboard": "Jupyterhub"
+    "dashboards": [{"name": "Jupyterhub", "port": 80}, {"name": "Ambassador", "port": 30080}]
   },
   "backend": {
     "imageid": "kubernetes-kubeflow",

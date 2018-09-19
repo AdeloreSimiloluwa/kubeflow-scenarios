@@ -14,7 +14,7 @@ Ksonnet requires a valid Github token. The following can be used within Katacoda
 Once installed, you can run the installation script:
 
 ```
-export KUBEFLOW_VERSION=0.2.2
+export KUBEFLOW_VERSION=0.2.5
 curl https://raw.githubusercontent.com/kubeflow/kubeflow/v${KUBEFLOW_VERSION}/scripts/deploy.sh | bash
 ```{{execute}}
 

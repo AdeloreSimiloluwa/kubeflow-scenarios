@@ -4,7 +4,7 @@ It's possible to view the resources available by running:
 
 `kubectl get crd`{{execute}}
 
-In 0.2.2, the PyTorch operator is not deployed by default. The following commands will deploy custom resource and operator.
+In 0.2.5, the PyTorch operator is not deployed by default. The following commands will deploy custom resource and operator.
 
 ```
 cd kubeflow_ks_app

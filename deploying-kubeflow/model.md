@@ -15,7 +15,7 @@ MODEL_PATH=/serving/inception-export
 Using Ksonnet, it's possible to extend the Kubeflow _tf-serving_ component to match the requirements for the model.
 
 ```
-cd ~/kubeflow_ks_app/
+cd ~/my-kubeflow
 ks generate tf-serving ${MODEL_COMPONENT} --name=${MODEL_NAME}
 ks param set ${MODEL_COMPONENT} modelPath $MODEL_PATH
 

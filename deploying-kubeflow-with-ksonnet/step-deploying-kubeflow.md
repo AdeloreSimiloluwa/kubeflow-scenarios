@@ -1,11 +1,5 @@
 With Kubeflow being an extension to Kubernetes, all the components need to be deployed to the platform. They are available in the [Github repository](https://github.com/kubeflow/kubeflow).
 
-## Deploy Ksonnet
-
-```
-curl -L https://github.com/ksonnet/ksonnet/releases/download/v0.11.0/ks_0.11.0_linux_amd64.tar.gz | tar xvz && mv ks_0.11.0_linux_amd64/ks /usr/local/bin/ks && rm -rf ks_0.11.0_linux_amd64/
-```{{execute}}
-
 ## Create a namespace for Kubeflow deployment
 The namespace defines a virtual cluster for the Kubeflow components to run from without interfering with other workloads on the system.
 

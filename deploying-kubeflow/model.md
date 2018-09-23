@@ -15,7 +15,7 @@ MODEL_PATH=/serving/inception-export
 Using Ksonnet, it's possible to extend the Kubeflow _tf-serving_ component to match the requirements for the model.
 
 ```
-cd ~/my-kubeflow
+cd ~/kubeflow_ks_app
 ks generate tf-serving ${MODEL_COMPONENT} --name=${MODEL_NAME}
 ks param set ${MODEL_COMPONENT} modelPath $MODEL_PATH
 
@@ -36,9 +36,9 @@ Clients will now be able to connect and access the trained data, see the pod run
 
 In this example, we use the pre-trained [Inception V3](https://github.com/tensorflow/models/tree/master/research/inception) model. It's the architecture trained on [ImageNet](http://www.image-net.org/) dataset. The ML task is image classification while the model server and its clients being handled by Kubernetes.
 
-To use the published model, you need to set up the client. This can be achieved the same way as other jobs. The YAML file for deploying the client is `cat model-client-job.yaml`{{execute}}. To deploy it use the following command:
+To use the published model, you need to set up the client. This can be achieved the same way as other jobs. The YAML file for deploying the client is `cat ~/model-client-job.yaml`{{execute}}. To deploy it use the following command:
 
-`kubectl apply -f model-client-job.yaml`{{execute}}
+`kubectl apply -f ~/model-client-job.yaml`{{execute}}
 
 To see the status of the __model-client-job__ run:
 

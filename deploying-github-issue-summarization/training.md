@@ -19,7 +19,7 @@ ks env add tfjob-run1
 ks env set tfjob-run1
 ks apply tfjob-run1 -c data-pvc
 ks apply tfjob-run1 -c data-downloader
-ks apply tfjob-run1 -c tfjob-pvc
+ks apply tfjob-run1 -c tfjob-pvc-v1alpha2
 `{{execute}}
 
 View the progress of the download with:
@@ -38,7 +38,7 @@ ks param set tfjob image "gcr.io/agwl-kubeflow/tf-job-issue-summarization:latest
 ks param set tfjob sample_size 100000 
 ```{{execute}}
 
-`ks apply tfjob-run1 -c tfjob`{{execute}}
+`ks apply tfjob-run1 -c tfjob-v1alpha2`{{execute}}
 
 This is deployed as a TFJob.
 
@@ -47,13 +47,13 @@ This is deployed as a TFJob.
 You can view the status of the deployment with:
 
 ```
-kubectl get pods -ltf_job_name=tf-job-issue-summarization
+kubectl get pods -ltf_job_key=tfjob-issue-summarization
 ```{{execute}}
 
 The logs can be accessed via:
 
 ```
-kubectl logs -f $(kubectl get pods -ltf_job_name=tf-job-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
+kubectl logs -f $(kubectl get pods -ltf_job_name=kubectl get pods -ltf_job_key=tfjob-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
 ```{{execute}}
 
 As the training will take a long time to complete, it's recommended to move on to the next step and use a pre-trained model.

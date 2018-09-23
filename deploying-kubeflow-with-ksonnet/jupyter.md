@@ -2,9 +2,10 @@ The second key component of Kubeflow is the ability to run Jupyter Notebooks via
 
 ## Open Jupyter Hub
 
-Via Katacoda, you can access the browser interface at the following link https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com or using the terminal *Jupyterhub* tab. To access the JupyterHub use the username __admin__ and a blank password in the login form.
+Via Katacoda, you can access the browser interface at the following link https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com or using the terminal *Jupyterhub* tab. To access the JupyterHub use the username **`admin`{{copy}}** and a blank password in the login form.
 
-To deploy a notebook, a new server has to be started. KubeFlow is using internally the `gcr.io/kubeflow/tensorflow-notebook-cpu:v1`{{copy}} Docker Image as default. After accessing the JupyterHub, you can click **Start My server** button.
+To deploy a notebook, a new server has to be started. Kubeflow is using internally the **`gcr.io/kubeflow-images-public/tensorflow-1.8.0-notebook-cpu:v0.2.1`{{copy}}** Docker Image as default. After accessing the JupyterHub, you can click **Start My server** button.
+
 
 The server launcher allows you to configure additional options, such as resource requirements. In this case, accept the defaults and click **Spawn** to start the server. Now you can see the contents of the Docker image that you can navigate, extend and work with Jupyter Notebooks.
 

@@ -14,10 +14,3 @@ curl https://raw.githubusercontent.com/kubeflow/kubeflow/v${KUBEFLOW_VERSION}/sc
 You should see the Kubeflow pods starting.
 
 `kubectl get pods`{{execute}}
-
-## Create Persistent Volume and Services for Katacoda
-To ensure Kubeflow runs successfully on Katacoda, deploy the following extensions.
-
-`kubectl apply -f ~/kubeflow/katacoda.yaml`{{execute}}
-
-This will create the LoadBalancer and Persistent Volume required by Kubeflow. This will vary based on your environment.

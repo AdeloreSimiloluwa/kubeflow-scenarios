@@ -7,6 +7,7 @@ git clone https://github.com/kubeflow/examples ~/kubeflow-examples
 cd ~/kubeflow-examples/github_issue_summarization/ks-kubeflow
 ks env add frontendenv
 ks param set ui github_token $GITHUB_TOKEN
+ks param set ui modelUrl http://issue-summarization.default.svc.cluster.local:8000/api/v0.1/predictions
 ks apply frontendenv -c ui
 ```{{execute}}
 

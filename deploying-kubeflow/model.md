@@ -42,10 +42,10 @@ To use the published model, you need to set up the client. This can be achieved 
 
 To see the status of the __model-client-job__ run:
 
-`kubectl get pods -a`{{execute}}
+`kubectl get pods`{{execute}}
 
 The command below will output the classification results for the [Katacoda logo](https://katacoda.com/kubeflow/scenarios/deploying-kubeflow/assets/katacoda.jpg).
 
-`kubectl logs $(kubectl get pods -a | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
+`kubectl logs $(kubectl get pods | grep Completed | tail -n1 |  tr -s ' ' | cut -d ' ' -f 1)`{{execute}}
 
 More information on serving models via Kubernetes can be found at https://github.com/kubeflow/kubeflow/tree/master/components/k8s-model-server

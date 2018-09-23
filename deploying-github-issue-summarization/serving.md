@@ -17,6 +17,7 @@ Kubeflow installs the kubeflow/seldon package by default. If we had wanted to se
 As we've made a change to the configuration, it's required to generate the template containing Seldon and deploy it to the Kubernetes cluster.
 ```
 cd ~/kubeflow_ks_app/
+kubectl create namespace kubeflow
 ks generate seldon seldon --name=seldon
 ks apply default -c seldon
 ```{{execute}}
@@ -41,6 +42,8 @@ View the status of the deployment at `kubectl get pods`{{execute}}
 
 Once deployed, it's possible to call the API and have a respond from our trained model.
 
+`kubectl run -i --tty curl --image=benhall/curl -- sh`{{execute}}
+
 ```
-curl -X POST -H 'Content-Type: application/json' -d '{"data":{"ndarray":[["issue overview add a new property to disable detection of image stream files those ended with -is.yml from target directory. expected behaviour by default cube should not process image stream files if user does not set it. current behaviour cube always try to execute -is.yml files which can cause some problems in most of cases, for example if you are using kuberentes instead of openshift or if you use together fabric8 maven plugin with cube"]]}}' http://[[HOST_IP]]:30080/seldon/issue-summarization/api/v0.1/predictions
+curl -X POST -H 'Content-Type: application/json' -d '{"data":{"ndarray":[["issue overview add a new property to disable detection of image stream files those ended with -is.yml from target directory. expected behaviour by default cube should not process image stream files if user does not set it. current behaviour cube always try to execute -is.yml files which can cause some problems in most of cases, for example if you are using kuberentes instead of openshift or if you use together fabric8 maven plugin with cube"]]}}' http://issue-summarization.default.svc.cluster.local:8000/api/v0.1/predictions
 ```{{execute}}

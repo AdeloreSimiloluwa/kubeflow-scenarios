@@ -53,7 +53,7 @@ kubectl get pods -ltf_job_key=tfjob-issue-summarization
 The logs can be accessed via:
 
 ```
-kubectl logs -f $(kubectl get pods -ltf_job_name=kubectl get pods -ltf_job_key=tfjob-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
+kubectl logs -f $(kubectl get pods -ltf_job_key=tfjob-issue-summarization -o=jsonpath='{.items[0].metadata.name}')
 ```{{execute}}
 
 As the training will take a long time to complete, it's recommended to move on to the next step and use a pre-trained model.
